@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
@@ -22,25 +21,25 @@ int reading(string Filename, string imagename, double wl, double hl, double wr, 
 void file();
 
 int main(int argc, char** argv) {
-	// устанвливаем русскую локаль для консоли
+	// устанавливаем русскую локализацию для консоли
 	setlocale(LC_ALL, "Russian");
-	//file();
+	file();
 
-	const char* imagename = "Dzerzhinsky.png";
+	const char* imagename = "WAYTOHOME.jpg";
 	const char* traectory_file = "coordinat.txt";
 	double wl = 55.639799;
 	double hl = 37.828428;
 	double wr = 55.622020;
 	double hr = 37.873735;
-	reading("coordinat.txt", "Dzerzhinsky.png", wl, hl, wr, hr);
-
-	/*Mat image = imread("Dzerzhinsky.png");
+	reading("coordinat.txt", "WAYTOHOME.jpg", wl, hl, wr, hr);
+	Mat image = imread("WAYTOHOME.jpg");
 	namedWindow("modernGoogle");
 	setMouseCallback("modernGoogle", my_mouse_callback, &image);
-	while(true){
-		imshow("modernGoogle",image);
-		waitKey(30);}
-	return(0);*/
+	while (true) {
+		imshow("modernGoogle", image);
+		waitKey(30);
+	}
+	return(0);
 }
 
 void file()
@@ -50,7 +49,13 @@ void file()
 	unsigned long milliseconds_since_epoch = chrono::system_clock::now().time_since_epoch() / chrono::milliseconds(1);
 	file << milliseconds_since_epoch << endl;
 	file.close();
-
+	Mat image = imread("WAYTOHOME.jpg");
+		namedWindow("modernGoogle");
+		setMouseCallback("modernGoogle", my_mouse_callback, &image);
+		while (true) {
+			imshow("modernGoogle", image);
+			waitKey(30);
+		}
 }
 
 void my_mouse_callback(int event, int x, int y, int flags, void* param)
@@ -60,6 +65,7 @@ void my_mouse_callback(int event, int x, int y, int flags, void* param)
 		Mat* pImage = (Mat*)param;
 		Mat image = *pImage;
 		circle(image, Point(x, y), 5, Scalar(255, 0, 0), FILLED, 8, 0);
+
 		ofstream file;
 		file.open("coordinat.txt", ios_base::app);
 		unsigned long milliseconds_since_epoch = chrono::system_clock::now().time_since_epoch() / chrono::milliseconds(1);
@@ -87,7 +93,7 @@ int reading(string Filename, string imagename, double wl, double hl, double wr, 
 		long double koef_mashtabW, koef_mashtabH;
 		koef_mashtabW = (wl - wr) / img.size().width;
 		koef_mashtabH = (hr - hl) / img.size().height;
-		//cout << koef_mashtabW << koef_mashtabH << endl;
+		cout << koef_mashtabW << koef_mashtabH << endl;
 
 		f >> t >> x >> y;
 
@@ -109,10 +115,7 @@ int reading(string Filename, string imagename, double wl, double hl, double wr, 
 			t = tt;
 		}
 	}
-
 	f.close();
 	cout << endl;
-	return 0;
 }
-
 
