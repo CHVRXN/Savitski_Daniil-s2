@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
 	setlocale(LC_ALL, "Russian");
 	//file();
 
-	const char* imagename = "DIMATITAN.jpg";
+	const char* imagename = "WAYTOHOME.jpg";
 	const char* traectory_file = "coordinat.txt";
 	double wl = 55.639799;
 	double hl = 37.828428;
@@ -36,10 +36,10 @@ int main(int argc, char** argv) {
 	cout << "read or enter"<<endl;
 	cin >> check;
 	if (check == "read") {
-		reading("coordinat.txt", "DIMATITAN.jpg", wl, hl, wr, hr);
+		reading("coordinat.txt", "WAYTOHOME.jpg", wl, hl, wr, hr);
 	}
 	else if (check == "enter") {
-		Mat image = imread("DIMATITAN.jpg");
+		Mat image = imread("WAYTOHOME.jpg");
 		namedWindow("modernGoogle");
 		setMouseCallback("modernGoogle", my_mouse_callback, &image);
 		while (true) {
@@ -61,7 +61,7 @@ void file()
 	unsigned long milliseconds_since_epoch = chrono::system_clock::now().time_since_epoch() / chrono::milliseconds(1);
 	file << milliseconds_since_epoch << endl;
 	file.close();
-	Mat image = imread("DIMATITAN.jpg");
+	Mat image = imread("WAYTOHOME.jpg");
 		namedWindow("modernGoogle");
 		setMouseCallback("modernGoogle", my_mouse_callback, &image);
 		while (true) {
