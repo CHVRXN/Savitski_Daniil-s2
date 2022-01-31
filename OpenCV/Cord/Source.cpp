@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
 	setlocale(LC_ALL, "Russian");
 	//file();
 
-	const char* imagename = "WAYTOHOME.jpg";
+	const char* imagename = "Dzer.jpg";
 	const char* traectory_file = "coordinat.txt";
 	double wl = 55.639799;
 	double hl = 37.828428;
@@ -33,13 +33,13 @@ int main(int argc, char** argv) {
 	double hr = 37.873735;
 
 	string check;
-	cout << "read or enter"<<endl;
+	cout << "read or enter" << endl;
 	cin >> check;
 	if (check == "read") {
-		reading("coordinat.txt", "WAYTOHOME.jpg", wl, hl, wr, hr);
+		reading("coordinat.txt", "Dzer.jpg", wl, hl, wr, hr);
 	}
 	else if (check == "enter") {
-		Mat image = imread("WAYTOHOME.jpg");
+		Mat image = imread("Dzer.jpg");
 		namedWindow("modernGoogle");
 		setMouseCallback("modernGoogle", my_mouse_callback, &image);
 		while (true) {
@@ -61,13 +61,13 @@ void file()
 	unsigned long milliseconds_since_epoch = chrono::system_clock::now().time_since_epoch() / chrono::milliseconds(1);
 	file << milliseconds_since_epoch << endl;
 	file.close();
-	Mat image = imread("WAYTOHOME.jpg");
-		namedWindow("modernGoogle");
-		setMouseCallback("modernGoogle", my_mouse_callback, &image);
-		while (true) {
-			imshow("modernGoogle", image);
-			waitKey(30);
-		}
+	Mat image = imread("Dzer.jpg");
+	namedWindow("modernGoogle");
+	setMouseCallback("modernGoogle", my_mouse_callback, &image);
+	while (true) {
+		imshow("modernGoogle", image);
+		waitKey(30);
+	}
 }
 
 void my_mouse_callback(int event, int x, int y, int flags, void* param)
@@ -79,7 +79,7 @@ void my_mouse_callback(int event, int x, int y, int flags, void* param)
 		Point trackBox;
 		trackBox = Point(x, y);
 
-		ellipse(image, Point(x, y), Size(20, 17), -50, 70, 200, Scalar(255), 40, 8, 0);
+		ellipse(image, Point(x, y), Size(7, 7), 50, 40, 200, Scalar(255), 35, 6, 0);
 
 		//circle(image, Point(x, y), 5, Scalar(255, 0, 0), FILLED, 8, 0);
 
@@ -123,7 +123,7 @@ void reading(string Filename, string imagename, double wl, double hl, double wr,
 			dolgota = koef_mashtabH * (img.size().height - y) + hl;
 			cout << "Метка времени: " << t << " широта: " << shirota << " долгота: " << dolgota << endl;
 
-			ellipse(img, Point(x, y), Size(20, 17), -50, 70, 200, Scalar(255), 40, 8, 0);
+			ellipse(img, Point(x, y), Size(7, 7), 50, 40, 200, Scalar(255), 35, 6, 0);
 
 			x = xm;
 			y = ym;
