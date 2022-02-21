@@ -12,3 +12,4 @@ RabbitMQ - это брокер сообщений с открытым исход
 удаляет из оперативной памяти и с диска.
 
 MQ - Message Queue.
+![jms-and-amqp-rabbitmq-1](https://user-images.githubusercontent.com/90219892/154923160-8c8a1e8d-c997-437c-8bb4-96f937bd75eb.png)
