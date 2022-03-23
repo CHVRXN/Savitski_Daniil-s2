@@ -39,17 +39,17 @@ https://docs.google.com/document/d/1z27O5xLblWKjIxcXRZnbd1smm-oYa8bt/edit
 Ответ: Возникновение переполнения стэка происходит, когда в нем начинает хранится больше информации, чем он может вместить, в этом случае происходит аварийная остановка программы
 3. Рекурсивная функция пример<br>
 Ответ: 
-int data=10;
-int func(int a){
-	printf("%i\n", a);
-	return func(a+1);
-}
-int main(int argc, char *argv[])
-{
-	printf("PID=%i\n", getpid());
-	func(1);
-	return 0;
-}
+<br>int data=10;
+<br>int func(int a){
+<br>	printf("%i\n", a);
+<br>	return func(a+1);
+<br>}
+<br>int main(int argc, char *argv[])
+<br>{
+<br>	printf("PID=%i\n", getpid());
+<br>	func(1);
+<br>	return 0;
+<br>}
 4. Что такое pid<br>
 Ответ: Это уникальный идентификационный номер, который автоматически присваивается каждому процессу, когда он создается в операционной системе
 5. Какой значок выводит незавершен. процессы и инф. о них<br>
